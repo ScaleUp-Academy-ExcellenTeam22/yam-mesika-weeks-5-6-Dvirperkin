@@ -22,7 +22,8 @@ def random_date_in_range():
     except ValueError:
         print("First date must be before second date")
 
-    if random_date.weekday() == 2:
+    if random_date.weekday() == 0:
         print("I have not vinaigrette!")
+
 
 random_date_in_range()
