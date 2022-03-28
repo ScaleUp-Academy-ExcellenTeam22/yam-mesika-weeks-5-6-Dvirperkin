@@ -1,29 +1,31 @@
 import datetime
 import random
+import sys
 
 
-def random_date_in_range():
-    date1 = input("Enter first date (YYYY-MM-DD):")
-    date2 = input("Enter second date (YYYY-MM-DD):")
+def create_random_date_in_range(start_date, end_date):
+    """This function get two Date objects and rand a new Date object
+     between the start_date to the end_date."""
 
-    try:
-        date1 = datetime.date.fromisoformat(date1)
-        date2 = datetime.date.fromisoformat(date2)
-    except ValueError:
-        print("Incorrect date format")
-        return
-
-    delta = date2 - date1
-
-    random_date = datetime.date
-
-    try:
-        random_date = date1 + datetime.timedelta(days=random.randrange(delta.days))
-    except ValueError:
-        print("First date must be before second date")
+    random_date = rand_date(start_date, end_date - start_date)
 
     if random_date.weekday() == 0:
-        print("I have not vinaigrette!")
+        print("I have no vinaigrette!")
+
+    return random_date
 
 
-random_date_in_range()
+def rand_date(start_date, date_range):
+    """This function gets Date object that indicate the start date and
+    a Date object build from difference between start_date to later Date object."""
+    return start_date + datetime.timedelta(days=random.randrange(date_range.days))
+
+
+def get_date_from_user():
+    """This function gets a date from the user and return a Date object that construct
+     with the given date. the date format is: YYYY-MM-DD."""
+    return datetime.date.fromisoformat(input("Enter a date (YYYY-MM-DD):"))
+
+
+if __name__ == '__main__':
+    print(create_random_date_in_range(get_date_from_user(), get_date_from_user()))
