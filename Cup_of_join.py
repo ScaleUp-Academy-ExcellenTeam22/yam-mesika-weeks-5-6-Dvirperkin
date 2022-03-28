@@ -1,16 +1,22 @@
 def join(*args, sep='-'):
-    if args is None:
+    """
+    This function get an unlimited number of lists and a character.
+    The function return a new list consisting of the contents of all the given lists.
+    The contents of all the lists in the new list seperated by the given character.
+    """
+    if args is ():
         return []
 
-    new_list = []
+    extended_list_with_separator = []
 
-    for lst in args:
-        new_list.extend(lst)
-        new_list.append(sep)
+    for list_to_add in args:
+        extended_list_with_separator.extend(list_to_add)
+        extended_list_with_separator.append(sep)
 
-    new_list.pop()
+    extended_list_with_separator.pop()
 
-    return new_list
+    return extended_list_with_separator
 
 
-print(join([1, 2], [8], [9, 5, 6], sep='@'))
+if __name__ == '__main__':
+    print(join([1, 2], [8], [9, 5, 6], sep='@'))
