@@ -1,8 +1,10 @@
 def join(*args, sep='-'):
     """
     This function get an unlimited number of lists and a character.
-    The function return a new list consisting of the contents of all the given lists.
-    The contents of all the lists in the new list seperated by the given character.
+    The function chaining all the lists and separate them with the separator.
+    @param args - Tuple of unlimited number of lists.
+    @param sep - Seperator character to separate between the chained lists.
+    @return - A new list consisting of the contents of all the lists separated by the given character.
     """
     if args is ():
         return []

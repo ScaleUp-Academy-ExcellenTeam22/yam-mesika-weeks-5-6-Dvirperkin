@@ -4,6 +4,7 @@ def get_recipe_price(prices, optionals=None, **args):
     @param prices - A dictionary that include the necessary ingredients (keys) and their prices for 100 gram (values).
     @param optionals - An optional list that include ingredients name to ignore in the recipe.
     @param args - Arguments that indicate the weight of each ingredient in prices.
+    @return prices_sum - The price summary of the ingredients for the recipe.
     """
     if optionals is None:
         optionals = []
